@@ -41,9 +41,7 @@ import { SwaggerPetstore } from "Swagger-Petstore";
 async function run() {
     const sdk = new SwaggerPetstore();
 
-    const res = await sdk.addPet({
-        name: "string",
-    });
+    const res = await sdk.pets.createPets();
 
     if (res.statusCode == 200) {
         // handle response
@@ -58,15 +56,11 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [SwaggerPetstore SDK](docs/sdks/swaggerpetstore/README.md)
+### [pets](docs/sdks/pets/README.md)
 
-* [addPet](docs/sdks/swaggerpetstore/README.md#addpet) - Creates a new pet in the store. Duplicates are allowed
-* [deletePet](docs/sdks/swaggerpetstore/README.md#deletepet) - deletes a single pet based on the ID supplied
-* [findPetById](docs/sdks/swaggerpetstore/README.md#findpetbyid) - Returns a user based on a single ID, if the user does not have access to the pet
-* [findPets](docs/sdks/swaggerpetstore/README.md#findpets) - Returns all pets from the system that the user has access to
-Nam sed condimentum est. Maecenas tempor sagittis sapien, nec rhoncus sem sagittis sit amet. Aenean at gravida augue, ac iaculis sem. Curabitur odio lorem, ornare eget elementum nec, cursus id lectus. Duis mi turpis, pulvinar ac eros ac, tincidunt varius justo. In hac habitasse platea dictumst. Integer at adipiscing ante, a sagittis ligula. Aenean pharetra tempor ante molestie imperdiet. Vivamus id aliquam diam. Cras quis velit non tortor eleifend sagittis. Praesent at enim pharetra urna volutpat venenatis eget eget mauris. In eleifend fermentum facilisis. Praesent enim enim, gravida ac sodales sed, placerat id erat. Suspendisse lacus dolor, consectetur non augue vel, vehicula interdum libero. Morbi euismod sagittis libero sed lacinia.
-
-Sed tempus felis lobortis leo pulvinar rutrum. Nam mattis velit nisl, eu condimentum ligula luctus nec. Phasellus semper velit eget aliquet faucibus. In a mattis elit. Phasellus vel urna viverra, condimentum lorem id, rhoncus nibh. Ut pellentesque posuere elementum. Sed a varius odio. Morbi rhoncus ligula libero, vel eleifend nunc tristique vitae. Fusce et sem dui. Aenean nec scelerisque tortor. Fusce malesuada accumsan magna vel tempus. Quisque mollis felis eu dolor tristique, sit amet auctor felis gravida. Sed libero lorem, molestie sed nisl in, accumsan tempor nisi. Fusce sollicitudin massa ut lacinia mattis. Sed vel eleifend lorem. Pellentesque vitae felis pretium, pulvinar elit eu, euismod sapien.
+* [createPets](docs/sdks/pets/README.md#createpets) - Create a pet
+* [listPets](docs/sdks/pets/README.md#listpets) - List all pets
+* [showPetById](docs/sdks/pets/README.md#showpetbyid) - Info for a specific pet
 <!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
@@ -88,9 +82,7 @@ async function run() {
 
     let res;
     try {
-        res = await sdk.addPet({
-            name: "string",
-        });
+        res = await sdk.pets.createPets();
     } catch (err) {
         if (err instanceof errors.SDKError) {
             console.error(err); // handle exception
@@ -117,7 +109,7 @@ You can override the default server globally by passing a server index to the `s
 
 | # | Server | Variables |
 | - | ------ | --------- |
-| 0 | `https://petstore.swagger.io/v2` | None |
+| 0 | `http://petstore.swagger.io/v1` | None |
 
 #### Example
 
@@ -129,9 +121,7 @@ async function run() {
         serverIdx: 0,
     });
 
-    const res = await sdk.addPet({
-        name: "string",
-    });
+    const res = await sdk.pets.createPets();
 
     if (res.statusCode == 200) {
         // handle response
@@ -151,12 +141,10 @@ import { SwaggerPetstore } from "Swagger-Petstore";
 
 async function run() {
     const sdk = new SwaggerPetstore({
-        serverURL: "https://petstore.swagger.io/v2",
+        serverURL: "http://petstore.swagger.io/v1",
     });
 
-    const res = await sdk.addPet({
-        name: "string",
-    });
+    const res = await sdk.pets.createPets();
 
     if (res.statusCode == 200) {
         // handle response

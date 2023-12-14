@@ -6,21 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../internal/utils";
 import * as components from "../../models/components";
 import { AxiosResponse } from "axios";
 
-export class FindPetsRequest extends SpeakeasyBase {
+export class ShowPetByIdRequest extends SpeakeasyBase {
     /**
-     * maximum number of results to return
+     * The id of the pet to retrieve
      */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
-    limit?: number;
-
-    /**
-     * tags to filter by
-     */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=tags" })
-    tags?: string[];
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=petId" })
+    petId: string;
 }
 
-export class FindPetsResponse extends SpeakeasyBase {
+export class ShowPetByIdResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */
@@ -34,6 +28,12 @@ export class FindPetsResponse extends SpeakeasyBase {
     error?: components.ErrorT;
 
     /**
+     * Expected response to a valid request
+     */
+    @SpeakeasyMetadata()
+    pet?: components.Pet;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -44,10 +44,4 @@ export class FindPetsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
-
-    /**
-     * pet response
-     */
-    @SpeakeasyMetadata({ elemType: components.Pet })
-    classes?: components.Pet[];
 }

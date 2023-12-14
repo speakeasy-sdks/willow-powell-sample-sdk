@@ -5,9 +5,7 @@ import { SwaggerPetstore } from "Swagger-Petstore";
 async function run() {
     const sdk = new SwaggerPetstore();
 
-    const res = await sdk.addPet({
-        name: "string",
-    });
+    const res = await sdk.pets.createPets();
 
     if (res.statusCode == 200) {
         // handle response

@@ -6,15 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../internal/utils";
 import * as components from "../../models/components";
 import { AxiosResponse } from "axios";
 
-export class DeletePetRequest extends SpeakeasyBase {
-    /**
-     * ID of pet to delete
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
-    id: number;
-}
-
-export class DeletePetResponse extends SpeakeasyBase {
+export class CreatePetsResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */

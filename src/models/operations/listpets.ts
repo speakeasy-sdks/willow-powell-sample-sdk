@@ -6,7 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../internal/utils";
 import * as components from "../../models/components";
 import { AxiosResponse } from "axios";
 
-export class AddPetResponse extends SpeakeasyBase {
+export class ListPetsRequest extends SpeakeasyBase {
+    /**
+     * How many items to return at one time (max 100)
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=limit" })
+    limit?: number;
+}
+
+export class ListPetsResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */
@@ -19,11 +27,14 @@ export class AddPetResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     error?: components.ErrorT;
 
-    /**
-     * pet response
-     */
     @SpeakeasyMetadata()
-    pet?: components.Pet;
+    headers: Record<string, string[]>;
+
+    /**
+     * A paged array of pets
+     */
+    @SpeakeasyMetadata({ elemType: components.Pet })
+    pets?: components.Pet[];
 
     /**
      * HTTP response status code for this operation
