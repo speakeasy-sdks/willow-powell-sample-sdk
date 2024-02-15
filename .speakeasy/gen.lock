@@ -4,15 +4,15 @@ management:
   docChecksum: 1bdb7a6f8bf3995d4b40475228403253
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.230.3
-  releaseVersion: 0.2.3
-  configChecksum: bd5265e42cbe5c0a12a84971b2231252
+  generationVersion: 2.258.2
+  releaseVersion: 0.2.4
+  configChecksum: b571326b583557aa8d1806160f7680e8
   repoURL: https://github.com/speakeasy-sdks/willow-powell-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/willow-powell-sample-sdk
 features:
   typescript:
-    core: 3.4.5
+    core: 3.4.7
     flattening: 2.81.1
     globalServerURLs: 2.82.1
 generatedFiles:
