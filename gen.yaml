@@ -7,10 +7,12 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   baseServerURL: ""
   flattenGlobalSecurity: true
 typescript:
-  version: 0.2.4
+  version: 0.2.5
   author: willow-powell
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true

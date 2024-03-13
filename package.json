@@ -1,6 +1,6 @@
 {
   "name": "Swagger-Petstore",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "willow-powell",
   "scripts": {
     "prepare": "tsc --build",
